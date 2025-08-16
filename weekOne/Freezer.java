@@ -4,7 +4,7 @@ import java.util.Stack;
 public class Freezer {
     Stack<IceCreamTub> tubStack;
 
-    public Freezer(int preFillSize) {
+    public Freezer() {
         tubStack = new Stack<>(); // Creating a new stack
     }
     
@@ -29,17 +29,19 @@ public class Freezer {
     */
     public Stack<IceCreamTub> sortStack(Stack<IceCreamTub> input) {
         Stack<IceCreamTub> tmpStack = new Stack<IceCreamTub>(); // Temporary ice cream tub stack
+        
+        // Run over the inputStack while the bottom hasn't been reached
         while(!input.isEmpty())
         {
             IceCreamTub tmp = input.pop(); // Pop out first tub
         
-            // While bottom of tmpStack hasn't been reached AND top of tmpStack's expiry date is earlier than tmp's expiry date
+            // Run over tmpStack while bottom hasn't been reached AND expiry date of [tmpStack's top tub] is earlier than [tmp's] expiry date
             while(!tmpStack.isEmpty() && tmpStack.peek().getExpiryDate().compareTo(tmp.getExpiryDate()) > 0)
             {
                 input.push(tmpStack.pop()); // Pop from tmpStack, push to inputStack
             }
             
-            // Push tmp in temporary stack
+            // Push tmp in temporary stack only after tmpStack loop
             tmpStack.push(tmp);
         }
         return tmpStack;

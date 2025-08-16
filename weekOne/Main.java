@@ -21,7 +21,7 @@ public class Main {
         System.out.print("Hello, Trainee. What should we call you? ");
         String trainee = scn.next();
         
-        System.out.print("Okay, " + trainee + ". Let's get you started!\n\n");
+        System.out.print("Okay, " + trainee + ". Welcome to the Confectionary Shop!\n\n");
 
         int maxTubs = 10;
         int preFillSize = rand.nextInt(maxTubs - 1); // Pre-filling the freezer
@@ -43,9 +43,9 @@ public class Main {
 
             switch (action) {
                 case 1:
-                    Freezer freezer = new Freezer(preFillSize);
-                    System.out.println("Opening the freezer...");
-                    System.out.println("\nNote: Freezer stack size is " + maxTubs + " tubs. Currently at " + preFillSize + (preFillSize > 1 ? " tubs." : " tub.")); // Freezer is pre-filled for this problem
+                    Freezer freezer = new Freezer();
+                    System.out.println("\nOpening the freezer...");
+                    System.out.println("Note: Freezer stack size is " + maxTubs + " tubs. Currently at " + preFillSize + (preFillSize > 1 ? " tubs." : " tub.")); // Freezer is pre-filled for this problem
                     
                     for (int i = 0; i < preFillSize; i++) {
                         freezer.pushIceCreamTub(new IceCreamTub(flavors[rand.nextInt(flavors.length)], new ExpiryDate(expYears[rand.nextInt(expYears.length)], expMos[rand.nextInt(expMos.length)], expDays[rand.nextInt(expDays.length)])));
@@ -77,10 +77,12 @@ public class Main {
                             freezer.sortTubStack();
 
 
-                            System.out.println("\nYou have successfully sorted the tubs in the freezer. Congratulations, " + trainee + "! ");
+                            System.out.println("\nClosing the freezer...");
+                            System.out.println("You have successfully sorted the tubs in the freezer. Congratulations, " + trainee + "! ");
                             break;
                         }
                         else if(challengeAction == 2) {
+                            System.out.println("Training session ended early. Ice cream tubs remain unsorted.");
                             continueChallenge = false;
                         }
                         else {
@@ -90,6 +92,7 @@ public class Main {
                     }
                     break;
                 case 2:
+                    System.out.println("Thank you for visiting the confectionary shop, " + trainee + ". Come back anytime you're ready!");
                     break;
                 default:
                     System.out.println("Invalid action. Select only within choices.\n");

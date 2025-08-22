@@ -10,27 +10,11 @@ public class Main {
         while ((data = scn.nextInt()) != 0) {
             list.tailInsert(data);
         }
+        System.out.print("Sorted List: ");
+        list.display();
 
-        /* 
-        // Doubly linked list test
-        Node currNode = list.head;
-        currNode = currNode.next;
-        currNode = currNode.next;
-        // currNode = currNode.prev;
-        currNode = currNode.next;
-        currNode = currNode.prev;
-
-        System.out.println("Value of current node: " + currNode.data);
-        */
-
-        
-        // Test printing forward
-        Node currNode = list.head;
-        while(currNode != null) {
-            System.out.println(currNode.data);
-            currNode = currNode.next;
-        }
-        
+        System.out.print("Unsorted List: ");
+        list.unsort();
 
         /* 
         // Test printing backward
@@ -40,6 +24,7 @@ public class Main {
             currNode = currNode.prev;
         }
         */
+
         scn.close();
     }
 }

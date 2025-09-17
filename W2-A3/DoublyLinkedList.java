@@ -47,6 +47,7 @@ public class DoublyLinkedList {
         }
 
         // Applies to odd list length
+        // Odd element left out
         if(current != null && current.next == null && current.prev != null) {
             int temp = current.prev.data;
             current.prev.data = current.data;
